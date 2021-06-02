@@ -1,15 +1,26 @@
-<nav class="navbar">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/">
+<nav class='navbar'>
+  <div class='container'>
+    <div class='navbar-brand'>
+      <a class='navbar-item' href='/'>
         <img
-          src="https://staffomatic-com.s3.amazonaws.com/images/logos/staffomatic-logo-colored2x.svg"
-          alt="Staffomatic"
+          src='https://staffomatic-com.s3.amazonaws.com/images/logos/staffomatic-logo-colored2x.svg'
+          alt='Staffomatic'
         />
-        <h1 class="navbar-item is-size-5">
+        <h1 class='navbar-item is-size-5'>
           Staffomatic
         </h1>
       </a>
+    </div>
+    <div class='navbar-end'>
+      <div class='navbar-item'>
+        <div class='buttons'>
+          {{#if this.isLoggedIn}}
+            <button class='button is-light' {{on "click" this.logout}}>Log out</button>
+          {{else}}
+            <button class='button is-primary' {{on "click" this.login}}>Log In</button>
+          {{/if}}
+        </div>
+      </div>
     </div>
   </div>
 </nav>

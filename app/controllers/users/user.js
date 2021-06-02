@@ -15,4 +15,14 @@ export default class UsersUserController extends Controller {
     //  console.log(exception);
     //})
   }
+
+  @action
+  archiveUser(){
+    this.model.archiveUser();
+  }
+
+  @action
+  unarchiveUser(){
+    this.model.unarchiveUser();
+  }
 }
