@@ -19,8 +19,10 @@
           is archived.
         </p>
       {{else}}
-        {{@model.name}}
-        is not archived.
+        <p class='subtitle has-text-white my-2'>
+          {{@model.name}}
+          is not archived.
+        </p>
       {{/if}}
       {{#if @model.isArchived}}
         <button

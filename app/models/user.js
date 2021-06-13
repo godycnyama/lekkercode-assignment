@@ -14,7 +14,7 @@ export default class UserModel extends Model {
 
   archiveUser() {
     if(!this.auth.isAuthenticated()){
-       alert("You have to be logged in to archive users!");
+       alert('You have to be logged in to archive users!');
        return;
     }
 
