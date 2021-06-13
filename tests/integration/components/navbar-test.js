@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | navbar', function(hooks) {
@@ -12,15 +12,11 @@ module('Integration | Component | navbar', function(hooks) {
 
     await render(hbs`<Navbar />`);
 
-    assert.equal(this.element.textContent.trim(), 'Staffomatic');
+    let heading = this.element.querySelector('h1');
 
-    // Template block usage:
-    await render(hbs`
-      <Navbar>
-        template block text
-      </Navbar>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'Staffomatic');
+    assert.equal(heading.textContent.trim(), 'Staffomatic');
+    //assert.ok(button.classList.contains('is-disabled'));
+  
+    //assert.equal(this.element.textContent.includes(), '/Log In/i');
   });
 });

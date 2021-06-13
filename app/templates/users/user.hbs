@@ -1,31 +1,41 @@
 {{page-title 'User'}}
-  <div class="container has-text-centered">
-    <div class="column is-3 is-offset-4">
-      <LinkTo @route="users">
-        <button class="button mb-2" type="button">
-          Back to users
-        </button>
-      </LinkTo>
-      <div class="user-profile">
-        <figure class="avatar">
-          <img src={{@model.image}} width="256px" alt="User" />
-        </figure>
-        <p class="title has-text-white my-2">
+<div class='container has-text-centered'>
+  <div class='column is-3 is-offset-4'>
+    <LinkTo @route='users'>
+      <button class='button mb-2' type='button'>
+        Back to users
+      </button>
+    </LinkTo>
+    <div class='user-profile'>
+      <figure class='avatar'>
+        <img src={{@model.image}} width='256px' alt='User' />
+      </figure>
+      <p class='title has-text-white my-2'>
+        {{@model.name}}
+      </p>
+      {{#if @model.isArchived}}
+        <p class='subtitle has-text-white my-2'>
           {{@model.name}}
+          is archived.
         </p>
-        <p class="subtitle has-text-white my-2">
-          Example Value:
-          {{@model.value}}
+      {{else}}
+        <p class='subtitle has-text-white my-2'>
+          {{@model.name}}
+          is not archived.
         </p>
+      {{/if}}
+      {{#if @model.isArchived}}
         <button
-          type="button"
-          class="button is-pulled-left mt-4"
-          {{on "click" this.modifyValue}}
-        >
-          Change Value
-        </button>
-
-      </div>
+          class='button is-warning is-centered'
+          {{on 'click' this.unarchiveUser}}
+        >Unarchive {{@model.name}}</button>
+      {{else}}
+        <button
+          class='button is-primary is-centered'
+          {{on 'click' this.archiveUser}}
+        >Archive {{@model.name}}</button>
+      {{/if}}
     </div>
   </div>
+</div>
 {{outlet}}
